@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -13,7 +14,6 @@ import {
   FileText, 
   Users, 
   Bookmark, 
-  ThumbsUp,
   Bell,
   DollarSign,
   BarChart3,
@@ -25,6 +25,13 @@ import {
   Twitter
 } from 'lucide-react';
 import ProjectCard, { ProjectProps } from '@/components/ProjectCard';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 
 // Sample data for demonstration
 const userProjects: ProjectProps[] = [
