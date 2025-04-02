@@ -1,5 +1,5 @@
-
 import { useState } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -26,6 +26,8 @@ import {
   Code,
   FileText,
   AlertTriangle,
+  Plus,
+  X
 } from 'lucide-react';
 import { 
   Popover, 
@@ -539,11 +541,11 @@ const Upload = () => {
               </p>
               <div className="space-y-4">
                 <Button className="w-full sm:w-auto" asChild>
-                  <Link to="/profile">View My Projects</Link>
+                  <RouterLink to="/profile">View My Projects</RouterLink>
                 </Button>
                 <div className="flex justify-center">
                   <Button variant="link" asChild>
-                    <Link to="/">Return to Home</Link>
+                    <RouterLink to="/">Return to Home</RouterLink>
                   </Button>
                 </div>
               </div>

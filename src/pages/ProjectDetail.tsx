@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -20,7 +19,8 @@ import {
   FileText,
   Code,
   Download,
-  AlertCircle
+  AlertCircle,
+  Check
 } from 'lucide-react';
 import { ProjectProps } from '@/components/ProjectCard';
 import {
@@ -48,7 +48,6 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 
-// Sample project data
 const projectsData: Record<string, ProjectProps> = {
   '1': {
     id: '1',
@@ -109,7 +108,6 @@ const projectsData: Record<string, ProjectProps> = {
   },
 };
 
-// Extended sample data for the project detail
 const extendedProjectData = {
   '1': {
     fullDescription: `
@@ -156,7 +154,6 @@ const ProjectDetail = () => {
   const [voted, setVoted] = useState<'up' | 'down' | null>(null);
   const [isBookmarked, setIsBookmarked] = useState(false);
 
-  // Fallback to first project if ID doesn't exist
   const projectId = id && projectsData[id] ? id : '1';
   const project = projectsData[projectId];
   const extendedProject = extendedProjectData[projectId as keyof typeof extendedProjectData];
@@ -193,9 +190,7 @@ const ProjectDetail = () => {
       
       <div className="container mx-auto px-4 py-8 flex-grow">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Main Content - 2/3 width on desktop */}
           <div className="lg:col-span-2">
-            {/* Project Header */}
             <div className="mb-6">
               <div className="flex flex-wrap gap-2 mb-3">
                 <Badge variant="outline" className="capitalize text-sm">
@@ -239,7 +234,6 @@ const ProjectDetail = () => {
               </div>
             </div>
             
-            {/* Project Images */}
             <div className="mb-8 overflow-hidden rounded-lg">
               <img 
                 src={project.thumbnail} 
@@ -248,7 +242,6 @@ const ProjectDetail = () => {
               />
             </div>
             
-            {/* Tabs for Project Content */}
             <Tabs defaultValue="overview" className="mb-8">
               <TabsList className="mb-6">
                 <TabsTrigger value="overview">Overview</TabsTrigger>
@@ -406,7 +399,6 @@ def create_diagnostic_model(input_shape):
                 <div>
                   <h2 className="text-2xl font-semibold mb-6">Comments</h2>
                   
-                  {/* Comment Form */}
                   <div className="mb-8">
                     <Textarea
                       placeholder="Leave a comment..."
@@ -415,7 +407,6 @@ def create_diagnostic_model(input_shape):
                     <Button>Post Comment</Button>
                   </div>
                   
-                  {/* Comments List */}
                   <div className="space-y-6">
                     {extendedProject?.comments ? (
                       extendedProject.comments.map((comment, index) => (
@@ -455,9 +446,7 @@ def create_diagnostic_model(input_shape):
             </Tabs>
           </div>
           
-          {/* Sidebar - 1/3 width on desktop */}
           <div className="lg:col-span-1">
-            {/* Project Actions */}
             <Card className="mb-6">
               <CardHeader>
                 <CardTitle>Project Access</CardTitle>
@@ -580,7 +569,6 @@ def create_diagnostic_model(input_shape):
               </CardFooter>
             </Card>
             
-            {/* Project Creator */}
             <Card className="mb-6">
               <CardHeader>
                 <CardTitle>Project Creator</CardTitle>
@@ -602,7 +590,6 @@ def create_diagnostic_model(input_shape):
               </CardContent>
             </Card>
             
-            {/* Legal Information */}
             <Card>
               <CardHeader>
                 <CardTitle>Legal Information</CardTitle>
