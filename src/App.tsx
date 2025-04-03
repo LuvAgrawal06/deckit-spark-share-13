@@ -26,16 +26,18 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/browse" element={<Browse />} />
-          <Route path="/project/:id" element={<ProjectDetail />} />
-          <Route path="/upload" element={<Upload />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="min-h-screen bg-theme-cream text-theme-dark">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/browse" element={<Browse />} />
+            <Route path="/project/:id" element={<ProjectDetail />} />
+            <Route path="/upload" element={<Upload />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
       </BrowserRouter>
       <Toaster />
       <Sonner />

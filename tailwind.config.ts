@@ -67,18 +67,13 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// DeckIt custom colors
-				deckit: {
-					purple: {
-						light: '#9b87f5',
-						DEFAULT: '#8B5CF6',
-						dark: '#7E69AB'
-					},
-					gray: {
-						light: '#F1F0FB',
-						DEFAULT: '#8E9196',
-						dark: '#1A1F2C'
-					}
+				// Custom theme colors
+				theme: {
+					light: '#BFB5AF',
+					DEFAULT: '#A26769',
+					medium: '#D5B9B2',
+					cream: '#ECE2D0',
+					dark: '#582C4D'
 				}
 			},
 			borderRadius: {

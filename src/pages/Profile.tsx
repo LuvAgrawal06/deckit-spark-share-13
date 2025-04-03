@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -32,8 +31,8 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import ProfilePictureViewer from '@/components/ProfilePictureViewer';
 
-// Sample data for demonstration
 const userProjects: ProjectProps[] = [
   {
     id: '1',
@@ -116,7 +115,6 @@ const savedProjects: ProjectProps[] = [
   }
 ];
 
-// Sample data for notifications
 const notifications = [
   {
     id: 1,
@@ -148,7 +146,6 @@ const notifications = [
   }
 ];
 
-// Sample data for earnings
 const earningsData = {
   totalEarnings: 245.78,
   thisMonth: 68.92,
@@ -167,40 +164,44 @@ const earningsData = {
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
+  const profilePicUrl = "https://randomuser.me/api/portraits/women/44.jpg";
   
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-theme-cream">
       <Navbar />
       
       <main className="flex-grow">
-        {/* User Profile Header */}
-        <div className="bg-gradient-to-r from-deckit-purple/90 to-deckit-purple-light/90 text-white py-12">
+        <div className="bg-gradient-to-r from-theme-dark to-theme py-12 text-white">
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
-              {/* Avatar */}
               <div className="relative">
-                <Avatar className="h-28 w-28 border-4 border-white">
-                  <AvatarImage src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen" />
-                  <AvatarFallback>SC</AvatarFallback>
+                <Avatar className="h-28 w-28 border-4 border-theme-cream">
+                  <AvatarImage src={profilePicUrl} alt="Sarah Chen" />
+                  <AvatarFallback className="bg-theme text-white">SC</AvatarFallback>
                 </Avatar>
                 <Button 
                   variant="secondary" 
                   size="icon" 
-                  className="absolute bottom-0 right-0 h-8 w-8 rounded-full"
+                  className="absolute bottom-0 right-0 h-8 w-8 rounded-full bg-theme-medium hover:bg-theme text-theme-dark"
                   onClick={() => setIsEditing(!isEditing)}
                 >
                   <Edit size={14} />
                 </Button>
+                
+                <ProfilePictureViewer
+                  src={profilePicUrl}
+                  alt="Sarah Chen"
+                  fallback="SC"
+                />
               </div>
               
-              {/* User Info */}
               <div className="flex-1 text-center md:text-left">
                 <div className="flex flex-col md:flex-row items-center md:items-start md:justify-between gap-4">
                   <div>
                     <h1 className="text-3xl font-bold">Sarah Chen</h1>
                     <div className="flex items-center justify-center md:justify-start gap-2 mt-1">
-                      <Badge className="bg-white/20">Pro Member</Badge>
-                      <Badge className="bg-amber-400/80 text-amber-900">Featured Creator</Badge>
+                      <Badge className="bg-theme-medium/50 text-white">Pro Member</Badge>
+                      <Badge className="bg-theme-cream/90 text-theme-dark">Featured Creator</Badge>
                     </div>
                     <p className="mt-3 max-w-2xl">
                       AI researcher and full-stack developer with a passion for healthcare technology. I love sharing my hackathon projects and learning from others.
@@ -208,18 +209,17 @@ const Profile = () => {
                   </div>
                   
                   <div className="flex gap-2">
-                    <Button variant="secondary" className="text-sm h-9">
+                    <Button variant="secondary" className="text-sm h-9 bg-theme-cream text-theme-dark hover:bg-theme-medium">
                       <Settings size={14} className="mr-1" />
                       <span>Settings</span>
                     </Button>
-                    <Button variant="secondary" className="text-sm h-9">
+                    <Button variant="secondary" className="text-sm h-9 bg-theme-cream text-theme-dark hover:bg-theme-medium">
                       <Upload size={14} className="mr-1" />
                       <span>Upload</span>
                     </Button>
                   </div>
                 </div>
                 
-                {/* Social links */}
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mt-4">
                   <a href="#" className="flex items-center text-sm text-white/80 hover:text-white">
                     <Mail size={16} className="mr-1" />
@@ -239,7 +239,6 @@ const Profile = () => {
                   </a>
                 </div>
                 
-                {/* Stats */}
                 <div className="flex flex-wrap justify-center md:justify-start gap-6 mt-5">
                   <div className="text-center">
                     <div className="text-xl font-bold">24</div>
@@ -265,29 +264,29 @@ const Profile = () => {
         
         <div className="container mx-auto px-4 py-8">
           <Tabs defaultValue="projects" className="space-y-8">
-            <TabsList className="mx-auto max-w-3xl flex justify-center mb-4">
-              <TabsTrigger value="projects" className="flex items-center gap-1">
+            <TabsList className="mx-auto max-w-3xl flex justify-center mb-4 bg-theme-light">
+              <TabsTrigger value="projects" className="flex items-center gap-1 data-[state=active]:bg-theme data-[state=active]:text-white">
                 <FileText size={16} />
                 <span>My Projects</span>
               </TabsTrigger>
-              <TabsTrigger value="saved" className="flex items-center gap-1">
+              <TabsTrigger value="saved" className="flex items-center gap-1 data-[state=active]:bg-theme data-[state=active]:text-white">
                 <Bookmark size={16} />
                 <span>Saved</span>
               </TabsTrigger>
-              <TabsTrigger value="following" className="flex items-center gap-1">
+              <TabsTrigger value="following" className="flex items-center gap-1 data-[state=active]:bg-theme data-[state=active]:text-white">
                 <Users size={16} />
                 <span>Following</span>
               </TabsTrigger>
-              <TabsTrigger value="likes" className="flex items-center gap-1">
+              <TabsTrigger value="likes" className="flex items-center gap-1 data-[state=active]:bg-theme data-[state=active]:text-white">
                 <ThumbsUp size={16} />
                 <span>Likes</span>
               </TabsTrigger>
-              <TabsTrigger value="notifications" className="flex items-center gap-1">
+              <TabsTrigger value="notifications" className="flex items-center gap-1 data-[state=active]:bg-theme data-[state=active]:text-white">
                 <Bell size={16} />
                 <span>Notifications</span>
-                <Badge className="ml-1 bg-red-500 h-5 w-5 flex items-center justify-center p-0">2</Badge>
+                <Badge className="ml-1 bg-theme-dark h-5 w-5 flex items-center justify-center p-0 text-white">2</Badge>
               </TabsTrigger>
-              <TabsTrigger value="earnings" className="flex items-center gap-1">
+              <TabsTrigger value="earnings" className="flex items-center gap-1 data-[state=active]:bg-theme data-[state=active]:text-white">
                 <DollarSign size={16} />
                 <span>Earnings</span>
               </TabsTrigger>
@@ -296,8 +295,8 @@ const Profile = () => {
             <TabsContent value="projects">
               <div className="max-w-7xl mx-auto">
                 <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-2xl font-bold">My Projects</h2>
-                  <Button className="flex items-center gap-1" asChild>
+                  <h2 className="text-2xl font-bold text-theme-dark">My Projects</h2>
+                  <Button className="flex items-center gap-1 bg-theme hover:bg-theme-dark" asChild>
                     <a href="/upload">
                       <Upload size={16} />
                       <span>Upload New Project</span>
@@ -312,16 +311,16 @@ const Profile = () => {
                     ))}
                   </div>
                 ) : (
-                  <Card className="text-center py-16">
+                  <Card className="text-center py-16 border-theme-medium">
                     <CardContent>
-                      <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gray-100 mb-4">
-                        <FileText className="h-6 w-6 text-gray-500" />
+                      <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-theme-light mb-4">
+                        <FileText className="h-6 w-6 text-theme-dark" />
                       </div>
-                      <h3 className="text-lg font-medium mb-2">No projects yet</h3>
-                      <p className="text-gray-500 mb-6">
+                      <h3 className="text-lg font-medium mb-2 text-theme-dark">No projects yet</h3>
+                      <p className="text-theme-dark/70 mb-6">
                         Upload your first project to showcase your work
                       </p>
-                      <Button className="flex items-center gap-1" asChild>
+                      <Button className="flex items-center gap-1 bg-theme hover:bg-theme-dark" asChild>
                         <a href="/upload">
                           <Upload size={16} />
                           <span>Upload Project</span>
@@ -336,7 +335,7 @@ const Profile = () => {
             <TabsContent value="saved">
               <div className="max-w-7xl mx-auto">
                 <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-2xl font-bold">Saved Projects</h2>
+                  <h2 className="text-2xl font-bold text-theme-dark">Saved Projects</h2>
                 </div>
                 
                 {savedProjects.length > 0 ? (
@@ -346,16 +345,16 @@ const Profile = () => {
                     ))}
                   </div>
                 ) : (
-                  <Card className="text-center py-16">
+                  <Card className="text-center py-16 border-theme-medium">
                     <CardContent>
-                      <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-gray-100 mb-4">
-                        <Bookmark className="h-6 w-6 text-gray-500" />
+                      <div className="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-theme-light mb-4">
+                        <Bookmark className="h-6 w-6 text-theme-dark" />
                       </div>
-                      <h3 className="text-lg font-medium mb-2">No saved projects</h3>
-                      <p className="text-gray-500 mb-6">
+                      <h3 className="text-lg font-medium mb-2 text-theme-dark">No saved projects</h3>
+                      <p className="text-theme-dark/70 mb-6">
                         Start browsing and save projects that interest you
                       </p>
-                      <Button variant="outline" asChild>
+                      <Button variant="outline" className="border-theme hover:bg-theme-light" asChild>
                         <a href="/browse">Browse Projects</a>
                       </Button>
                     </CardContent>
@@ -371,7 +370,6 @@ const Profile = () => {
                 </div>
                 
                 <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                  {/* Sample following list */}
                   {Array.from({ length: 8 }).map((_, i) => (
                     <Card key={i} className="overflow-hidden">
                       <CardContent className="p-6">
@@ -403,7 +401,6 @@ const Profile = () => {
                 </div>
                 
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {/* Show a combination of saved projects for demo */}
                   {[...savedProjects, ...userProjects].map((project) => (
                     <ProjectCard key={project.id} project={project} />
                   ))}
