@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -17,6 +17,7 @@ import {
   SelectValue 
 } from '@/components/ui/select';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useToast } from '@/hooks/use-toast';
 import {
   Upload as UploadIcon,
   File,
@@ -37,6 +38,8 @@ import {
 import { Badge } from '@/components/ui/badge';
 
 const Upload = () => {
+  const navigate = useNavigate();
+  const { toast } = useToast();
   const [projectType, setProjectType] = useState<'hackathon' | 'case-competition'>('hackathon');
   const [files, setFiles] = useState<File[]>([]);
   const [thumbnailFile, setThumbnailFile] = useState<File | null>(null);
@@ -104,7 +107,18 @@ const Upload = () => {
     setTimeout(() => {
       setIsSubmitting(false);
       setStep(4); // Move to success step
+      
+      // Show success toast
+      toast({
+        title: "Project Uploaded Successfully",
+        description: "Your project is now available in your profile",
+        variant: "default",
+      });
     }, 2000);
+  };
+  
+  const goToProfile = () => {
+    navigate('/profile');
   };
   
   return (
@@ -128,7 +142,7 @@ const Upload = () => {
                   <div 
                     className={`w-8 h-8 rounded-full flex items-center justify-center ${
                       s < step ? 'bg-green-500 text-white' :
-                      s === step ? 'bg-deckit-purple text-white' :
+                      s === step ? 'bg-theme text-white' :
                       'bg-gray-200 text-gray-500'
                     }`}
                   >
@@ -265,7 +279,7 @@ const Upload = () => {
               </div>
               
               <div className="mt-8 flex justify-end">
-                <Button onClick={nextStep}>
+                <Button onClick={nextStep} className="bg-theme text-white hover:bg-theme-dark">
                   Continue
                 </Button>
               </div>
@@ -419,10 +433,10 @@ const Upload = () => {
               </div>
               
               <div className="mt-8 flex justify-between">
-                <Button variant="outline" onClick={prevStep}>
+                <Button variant="outline" onClick={prevStep} className="border-theme hover:bg-theme-light">
                   Back
                 </Button>
-                <Button onClick={nextStep}>
+                <Button onClick={nextStep} className="bg-theme text-white hover:bg-theme-dark">
                   Continue
                 </Button>
               </div>
@@ -507,13 +521,13 @@ const Upload = () => {
               </div>
               
               <div className="mt-8 flex justify-between">
-                <Button variant="outline" onClick={prevStep}>
+                <Button variant="outline" onClick={prevStep} className="border-theme hover:bg-theme-light">
                   Back
                 </Button>
                 <Button 
                   onClick={handleSubmit} 
                   disabled={!termsAgreed || !ipConfirmed || isSubmitting}
-                  className="flex items-center gap-2"
+                  className="bg-theme text-white hover:bg-theme-dark flex items-center gap-2"
                 >
                   {isSubmitting ? 'Uploading...' : 'Upload Project'}
                   {isSubmitting ? (
@@ -537,14 +551,14 @@ const Upload = () => {
               </div>
               <h2 className="text-2xl font-bold mb-2">Project Successfully Uploaded!</h2>
               <p className="text-gray-600 max-w-lg mx-auto mb-8">
-                Your project has been uploaded and is now being reviewed. Once approved, it will be available on DeckIt.
+                Your project has been uploaded and is now being reviewed. Once approved, it will be available on your profile.
               </p>
               <div className="space-y-4">
-                <Button className="w-full sm:w-auto" asChild>
-                  <RouterLink to="/profile">View My Projects</RouterLink>
+                <Button className="w-full sm:w-auto bg-theme hover:bg-theme-dark" onClick={goToProfile}>
+                  View My Projects
                 </Button>
                 <div className="flex justify-center">
-                  <Button variant="link" asChild>
+                  <Button variant="link" className="text-theme" asChild>
                     <RouterLink to="/">Return to Home</RouterLink>
                   </Button>
                 </div>

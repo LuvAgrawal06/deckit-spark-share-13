@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+
+import { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { 
   User, 
   Settings, 
@@ -31,6 +32,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
+import { useToast } from '@/hooks/use-toast';
 import ProfilePictureViewer from '@/components/ProfilePictureViewer';
 
 const userProjects: ProjectProps[] = [
@@ -163,8 +165,24 @@ const earningsData = {
 };
 
 const Profile = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { toast } = useToast();
   const [isEditing, setIsEditing] = useState(false);
+  const [activeTab, setActiveTab] = useState('projects');
   const profilePicUrl = "https://randomuser.me/api/portraits/women/44.jpg";
+  
+  // Set active tab based on location or query params
+  useEffect(() => {
+    // If we're coming from upload page, show projects tab and notification
+    if (location.state?.fromUpload) {
+      setActiveTab('projects');
+      toast({
+        title: "Upload Complete",
+        description: "Your project is now visible in your profile",
+      });
+    }
+  }, [location, toast]);
   
   return (
     <div className="min-h-screen flex flex-col bg-theme-cream">
@@ -213,9 +231,11 @@ const Profile = () => {
                       <Settings size={14} className="mr-1" />
                       <span>Settings</span>
                     </Button>
-                    <Button variant="secondary" className="text-sm h-9 bg-theme-cream text-theme-dark hover:bg-theme-medium">
-                      <Upload size={14} className="mr-1" />
-                      <span>Upload</span>
+                    <Button variant="secondary" className="text-sm h-9 bg-theme-cream text-theme-dark hover:bg-theme-medium" asChild>
+                      <Link to="/upload">
+                        <Upload size={14} className="mr-1" />
+                        <span>Upload</span>
+                      </Link>
                     </Button>
                   </div>
                 </div>
@@ -263,7 +283,7 @@ const Profile = () => {
         </div>
         
         <div className="container mx-auto px-4 py-8">
-          <Tabs defaultValue="projects" className="space-y-8">
+          <Tabs defaultValue={activeTab} value={activeTab} onValueChange={setActiveTab} className="space-y-8">
             <TabsList className="mx-auto max-w-3xl flex justify-center mb-4 bg-theme-light">
               <TabsTrigger value="projects" className="flex items-center gap-1 data-[state=active]:bg-theme data-[state=active]:text-white">
                 <FileText size={16} />
