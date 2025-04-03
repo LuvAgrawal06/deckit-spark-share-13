@@ -202,5 +202,5 @@
 
 /* Custom buttons */
 .btn-gradient {
-  @apply bg-gradient-to-r from-deckit-purple to-deckit-purple-light text-white hover:shadow-md transition-all;
+  @apply bg-gradient-to-r from-theme to-theme-medium text-white hover:shadow-md transition-all;
 }

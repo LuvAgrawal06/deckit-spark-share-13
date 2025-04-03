@@ -74,6 +74,14 @@ export default {
 					medium: '#D5B9B2',
 					cream: '#ECE2D0',
 					dark: '#582C4D'
+				},
+				// Add the deckit colors that are missing
+				deckit: {
+					purple: '#9b87f5',
+					'purple-dark': '#7E69AB',
+					'purple-light': '#D6BCFA',
+					gray: '#F7F7F7',
+					'gray-light': '#F1F5F9'
 				}
 			},
 			borderRadius: {

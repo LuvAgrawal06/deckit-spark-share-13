@@ -68,7 +68,7 @@ const HomePage = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-deckit-purple/90 to-deckit-purple-light/90 text-white py-16 md:py-24">
+      <section className="bg-gradient-to-r from-theme-dark/90 to-theme/90 text-white py-16 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
@@ -80,7 +80,7 @@ const HomePage = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/browse">
-                <Button size="lg" className="w-full sm:w-auto bg-white text-deckit-purple hover:bg-gray-100 hover:text-deckit-purple-dark">
+                <Button size="lg" className="w-full sm:w-auto bg-theme-cream text-theme-dark hover:bg-theme-light hover:text-theme-dark">
                   Browse Projects
                 </Button>
               </Link>
@@ -102,8 +102,8 @@ const HomePage = () => {
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="flex flex-col items-center text-center p-6 rounded-lg">
-              <div className="bg-deckit-purple/10 p-4 rounded-full mb-4">
-                <Upload className="h-8 w-8 text-deckit-purple" />
+              <div className="bg-theme/10 p-4 rounded-full mb-4">
+                <Upload className="h-8 w-8 text-theme" />
               </div>
               <h3 className="text-xl font-semibold mb-3">Share Your Best Work</h3>
               <p className="text-gray-600">
@@ -112,8 +112,8 @@ const HomePage = () => {
             </div>
             
             <div className="flex flex-col items-center text-center p-6 rounded-lg">
-              <div className="bg-deckit-purple/10 p-4 rounded-full mb-4">
-                <DollarSign className="h-8 w-8 text-deckit-purple" />
+              <div className="bg-theme/10 p-4 rounded-full mb-4">
+                <DollarSign className="h-8 w-8 text-theme" />
               </div>
               <h3 className="text-xl font-semibold mb-3">Earn From Your Content</h3>
               <p className="text-gray-600">
@@ -122,8 +122,8 @@ const HomePage = () => {
             </div>
             
             <div className="flex flex-col items-center text-center p-6 rounded-lg">
-              <div className="bg-deckit-purple/10 p-4 rounded-full mb-4">
-                <Users className="h-8 w-8 text-deckit-purple" />
+              <div className="bg-theme/10 p-4 rounded-full mb-4">
+                <Users className="h-8 w-8 text-theme" />
               </div>
               <h3 className="text-xl font-semibold mb-3">Join a Community</h3>
               <p className="text-gray-600">
@@ -135,12 +135,12 @@ const HomePage = () => {
       </section>
 
       {/* Featured Projects Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-theme-cream/50">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-10">
             <h2 className="text-2xl font-bold">Featured Projects</h2>
             <Link to="/browse">
-              <Button variant="link" className="text-deckit-purple">
+              <Button variant="link" className="text-theme">
                 View All Projects
               </Button>
             </Link>
@@ -161,9 +161,9 @@ const HomePage = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <Link to="/browse?category=hackathon" className="group">
-              <div className="bg-deckit-gray-light rounded-lg p-6 text-center transition-all hover:shadow-md">
-                <div className="bg-deckit-purple/10 p-3 rounded-full inline-block mb-4 group-hover:bg-deckit-purple/20">
-                  <Brain className="h-6 w-6 text-deckit-purple" />
+              <div className="bg-theme-cream rounded-lg p-6 text-center transition-all hover:shadow-md">
+                <div className="bg-theme/10 p-3 rounded-full inline-block mb-4 group-hover:bg-theme/20">
+                  <Brain className="h-6 w-6 text-theme" />
                 </div>
                 <h3 className="font-semibold mb-2">Hackathons</h3>
                 <p className="text-sm text-gray-600">Technical projects from coding competitions</p>
@@ -171,9 +171,9 @@ const HomePage = () => {
             </Link>
             
             <Link to="/browse?category=case-competition" className="group">
-              <div className="bg-deckit-gray-light rounded-lg p-6 text-center transition-all hover:shadow-md">
-                <div className="bg-deckit-purple/10 p-3 rounded-full inline-block mb-4 group-hover:bg-deckit-purple/20">
-                  <DollarSign className="h-6 w-6 text-deckit-purple" />
+              <div className="bg-theme-cream rounded-lg p-6 text-center transition-all hover:shadow-md">
+                <div className="bg-theme/10 p-3 rounded-full inline-block mb-4 group-hover:bg-theme/20">
+                  <DollarSign className="h-6 w-6 text-theme" />
                 </div>
                 <h3 className="font-semibold mb-2">Case Competitions</h3>
                 <p className="text-sm text-gray-600">Strategic business solutions and analyses</p>
@@ -181,9 +181,9 @@ const HomePage = () => {
             </Link>
             
             <Link to="/browse?tag=ai" className="group">
-              <div className="bg-deckit-gray-light rounded-lg p-6 text-center transition-all hover:shadow-md">
-                <div className="bg-deckit-purple/10 p-3 rounded-full inline-block mb-4 group-hover:bg-deckit-purple/20">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-deckit-purple">
+              <div className="bg-theme-cream rounded-lg p-6 text-center transition-all hover:shadow-md">
+                <div className="bg-theme/10 p-3 rounded-full inline-block mb-4 group-hover:bg-theme/20">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-theme">
                     <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"></path>
                     <rect width="6" height="6" x="9" y="3" rx="1"></rect>
                     <path d="M9 17v-5"></path>
@@ -197,9 +197,9 @@ const HomePage = () => {
             </Link>
             
             <Link to="/browse?tag=sustainability" className="group">
-              <div className="bg-deckit-gray-light rounded-lg p-6 text-center transition-all hover:shadow-md">
-                <div className="bg-deckit-purple/10 p-3 rounded-full inline-block mb-4 group-hover:bg-deckit-purple/20">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-deckit-purple">
+              <div className="bg-theme-cream rounded-lg p-6 text-center transition-all hover:shadow-md">
+                <div className="bg-theme/10 p-3 rounded-full inline-block mb-4 group-hover:bg-theme/20">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-theme">
                     <path d="M2 22c1.25-.65 2.5-1.3 3.75-1.3 2.5 0 2.5 1.3 5 1.3s2.5-1.3 5-1.3c1.25 0 2.5.65 3.75 1.3"></path>
                     <path d="M2 17c1.25-.65 2.5-1.3 3.75-1.3 2.5 0 2.5 1.3 5 1.3s2.5-1.3 5-1.3c1.25 0 2.5.65 3.75 1.3"></path>
                     <path d="M2 12c1.25-.65 2.5-1.3 3.75-1.3 2.5 0 2.5 1.3 5 1.3s2.5-1.3 5-1.3c1.25 0 2.5.65 3.75 1.3"></path>
@@ -214,7 +214,7 @@ const HomePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-deckit-purple/10">
+      <section className="py-16 bg-theme/10">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-6">Ready to Share Your Winning Project?</h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto mb-8">
@@ -222,7 +222,7 @@ const HomePage = () => {
             and earning revenue from their competition entries.
           </p>
           <Link to="/upload">
-            <Button size="lg" className="bg-deckit-purple hover:bg-deckit-purple-dark">
+            <Button size="lg" className="bg-theme hover:bg-theme-dark">
               <Upload size={18} className="mr-2" />
               Upload Your Project
             </Button>
