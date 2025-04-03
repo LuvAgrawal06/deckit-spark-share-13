@@ -11,7 +11,7 @@ const Navbar = () => {
   const isMobile = useIsMobile();
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-sm border-b border-gray-200">
+    <nav className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo and Brand */}
@@ -30,7 +30,7 @@ const Navbar = () => {
                 <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
                 <Input
                   placeholder="Search decks, code projects, or users..."
-                  className="pl-10 w-full bg-muted/50"
+                  className="pl-10 w-full bg-muted/30 border-gray-200 focus:border-deckit-purple focus:ring-1 focus:ring-deckit-purple"
                 />
               </div>
             </div>
@@ -79,7 +79,7 @@ const Navbar = () => {
               <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Search..."
-                className="pl-10 w-full bg-muted/50"
+                className="pl-10 w-full bg-muted/30 border-gray-200"
               />
             </div>
           </div>
@@ -87,7 +87,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobile && mobileMenuOpen && (
-          <div className="absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg py-3">
+          <div className="absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg py-3 animate-in slide-in-from-top-2">
             <div className="container mx-auto px-4 flex flex-col space-y-2">
               <Link to="/browse" className="py-2 px-4 hover:bg-muted/50 rounded-md">
                 Browse
