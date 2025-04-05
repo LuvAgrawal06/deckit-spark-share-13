@@ -197,13 +197,13 @@ const ProjectDetail = () => {
                   {project.type.replace('-', ' ')}
                 </Badge>
                 {project.premium && (
-                  <Badge className="bg-deckit-purple text-sm">
+                  <Badge className="bg-theme text-theme-light text-sm">
                     <Lock size={12} className="mr-1" />
                     Premium
                   </Badge>
                 )}
                 {project.ultraPremium && (
-                  <Badge className="bg-gradient-to-r from-amber-400 to-amber-600 text-sm">
+                  <Badge className="bg-gradient-to-r from-theme-dark to-theme text-sm">
                     <Lock size={12} className="mr-1" />
                     Ultra Premium
                   </Badge>

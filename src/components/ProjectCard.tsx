@@ -44,7 +44,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
           />
           {(project.premium || project.ultraPremium) && (
             <div className="absolute top-0 right-0 p-2">
-              <Badge className={project.ultraPremium ? 'bg-gradient-to-r from-amber-400 to-amber-600' : 'bg-deckit-purple'}>
+              <Badge className={project.ultraPremium ? 'bg-gradient-to-r from-theme-dark to-theme text-theme-light' : 'bg-theme text-theme-light'}>
                 <Lock size={12} className="mr-1" />
                 {project.ultraPremium ? 'Ultra Premium' : 'Premium'}
               </Badge>
