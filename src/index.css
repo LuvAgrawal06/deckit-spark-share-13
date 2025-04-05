@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -203,5 +202,5 @@
 
 /* Custom buttons */
 .btn-gradient {
-  @apply bg-gradient-to-r from-theme to-theme-medium text-white hover:shadow-md transition-all;
+  @apply bg-gradient-to-r from-[#582C4D] to-[#A26769] text-white hover:shadow-md transition-all;
 }
