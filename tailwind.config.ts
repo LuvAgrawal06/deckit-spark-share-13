@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -67,15 +66,15 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom theme colors
+				// Custom theme colors - updated to coffee shop palette
 				theme: {
-					light: '#BFB5AF',
-					DEFAULT: '#A26769',
-					medium: '#D5B9B2',
-					cream: '#ECE2D0',
-					dark: '#582C4D'
+					light: '#F5F0E8', // Au Lait - light cream
+					DEFAULT: '#2C313A', // Inkwell - deep muted navy/black
+					medium: '#E0C9A6', // Crème Brulée - creamy tan
+					cream: '#F5F0E8', // Au Lait - light cream (same as light for consistency)
+					dark: '#5D6970'  // Lunar Eclipse - cool gray-green
 				},
-				// Add the deckit colors that are missing
+				// Keep deckit colors
 				deckit: {
 					purple: '#9b87f5',
 					'purple-dark': '#7E69AB',
