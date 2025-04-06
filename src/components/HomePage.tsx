@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Upload, Users, DollarSign, Brain } from 'lucide-react';
@@ -85,7 +84,7 @@ const HomePage = () => {
                 </Button>
               </Link>
               <Link to="/upload">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto border-white text-white hover:bg-white/10">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto border-white text-white hover:bg-white hover:text-theme-dark font-medium">
                   <Upload size={18} className="mr-2" />
                   Upload Your Work
                 </Button>
