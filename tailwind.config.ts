@@ -66,19 +66,19 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom theme colors - updated to luxurious purple and pink
+				// Custom theme colors - updated to darker purple and pink
 				theme: {
-					light: '#F8F7FC', // Light lavender - for backgrounds
-					DEFAULT: '#9B87F5', // Medium purple - primary brand color
-					medium: '#D6BCFA', // Soft lavender - secondary elements
-					cream: '#FFF5FA', // Soft pink cream - alternate light background
-					dark: '#7E69AB'  // Deep purple - for emphasis and contrast
+					light: '#F3E6FF', // Light lavender - for backgrounds
+					DEFAULT: '#6A3EA1', // Deep purple - primary brand color
+					medium: '#B76EDD', // Medium pink-purple - secondary elements
+					cream: '#FAF5FF', // Very light purple - alternate light background
+					dark: '#3D155F'  // Dark purple - for emphasis and contrast
 				},
 				// Keep deckit colors
 				deckit: {
-					purple: '#9b87f5',
-					'purple-dark': '#7E69AB',
-					'purple-light': '#D6BCFA',
+					purple: '#6A3EA1',
+					'purple-dark': '#3D155F',
+					'purple-light': '#B76EDD',
 					gray: '#F7F7F7',
 					'gray-light': '#F1F5F9'
 				}

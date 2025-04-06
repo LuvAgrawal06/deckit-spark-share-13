@@ -12,6 +12,7 @@ import Upload from "./pages/Upload";
 import Pricing from "./pages/Pricing";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
+import UserProfile from "./pages/UserProfile";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/user/:username" element={<UserProfile />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>

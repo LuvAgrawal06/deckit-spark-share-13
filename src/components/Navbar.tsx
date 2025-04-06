@@ -1,14 +1,21 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Search, Menu, X, Upload, User } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isMobile = useIsMobile();
+  const [isLoggedIn, setIsLoggedIn] = useState(true); // Mock logged in state
+  const [user, setUser] = useState({
+    name: 'Sarah Chen',
+    username: 'sarahchen',
+    profilePic: 'https://randomuser.me/api/portraits/women/44.jpg'
+  });
 
   return (
     <nav className="sticky top-0 z-50 w-full bg-theme-cream border-b border-theme-light shadow-sm">
@@ -51,17 +58,24 @@ const Navbar = () => {
                   <span>Upload</span>
                 </Button>
               </Link>
-              <Link to="/login">
-                <Button variant="outline" className="ml-2 flex items-center gap-1 border-theme text-theme hover:bg-theme-light">
-                  <User size={16} />
-                  <span>Login</span>
-                </Button>
-              </Link>
-              <Link to="/profile">
-                <Button variant="ghost" className="ml-2 p-1 h-10 w-10 rounded-full bg-theme-light hover:bg-theme-medium">
-                  <User size={20} className="text-theme-dark" />
-                </Button>
-              </Link>
+              
+              {!isLoggedIn ? (
+                <Link to="/login">
+                  <Button variant="outline" className="ml-2 flex items-center gap-1 border-theme text-theme hover:bg-theme-light">
+                    <User size={16} />
+                    <span>Login</span>
+                  </Button>
+                </Link>
+              ) : (
+                <Link to="/profile">
+                  <Button variant="ghost" className="ml-2 p-1 h-10 w-10 rounded-full overflow-hidden hover:bg-theme-light">
+                    <Avatar className="h-full w-full">
+                      <AvatarImage src={user.profilePic} alt={user.name} />
+                      <AvatarFallback className="bg-theme text-white">{user.name.charAt(0)}</AvatarFallback>
+                    </Avatar>
+                  </Button>
+                </Link>
+              )}
             </div>
           )}
 
@@ -104,14 +118,20 @@ const Navbar = () => {
                 <Upload size={16} />
                 <span>Upload</span>
               </Link>
-              <Link to="/login" className="py-2 px-4 hover:bg-theme-light rounded-md flex items-center gap-2 text-theme-dark">
-                <User size={16} />
-                <span>Login</span>
-              </Link>
-              <Link to="/profile" className="py-2 px-4 hover:bg-theme-light rounded-md flex items-center gap-2 text-theme-dark">
-                <User size={16} />
-                <span>Profile</span>
-              </Link>
+              
+              {!isLoggedIn ? (
+                <Link to="/login" className="py-2 px-4 hover:bg-theme-light rounded-md flex items-center gap-2 text-theme-dark">
+                  <User size={16} />
+                  <span>Login</span>
+                </Link>
+              ) : (
+                <Link to="/profile" className="py-2 px-4 hover:bg-theme-light rounded-md flex items-center gap-2 text-theme-dark">
+                  <div className="h-6 w-6 rounded-full overflow-hidden">
+                    <img src={user.profilePic} alt={user.name} className="h-full w-full object-cover" />
+                  </div>
+                  <span>Profile</span>
+                </Link>
+              )}
             </div>
           </div>
         )}

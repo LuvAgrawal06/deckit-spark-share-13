@@ -15,18 +15,18 @@ interface ProfileHeaderProps {
 
 const ProfileHeader = ({ profilePicUrl, isEditing, setIsEditing }: ProfileHeaderProps) => {
   return (
-    <div className="bg-gradient-to-r from-[#582C4D] to-[#A26769] py-12 text-white">
+    <div className="bg-gradient-to-r from-theme-dark to-theme py-12 text-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
           <div className="relative">
-            <Avatar className="h-28 w-28 border-4 border-[#ECE2D0]">
+            <Avatar className="h-28 w-28 border-4 border-[#FAF5FF]">
               <AvatarImage src={profilePicUrl} alt="Sarah Chen" />
-              <AvatarFallback className="bg-[#A26769] text-white">SC</AvatarFallback>
+              <AvatarFallback className="bg-theme-medium text-white">SC</AvatarFallback>
             </Avatar>
             <Button 
               variant="secondary" 
               size="icon" 
-              className="absolute bottom-0 right-0 h-8 w-8 rounded-full bg-[#D5B9B2] hover:bg-[#A26769] text-[#582C4D]"
+              className="absolute bottom-0 right-0 h-8 w-8 rounded-full bg-theme-light hover:bg-theme-medium text-theme-dark"
               onClick={() => setIsEditing(!isEditing)}
             >
               <Upload size={14} />
@@ -44,8 +44,8 @@ const ProfileHeader = ({ profilePicUrl, isEditing, setIsEditing }: ProfileHeader
               <div>
                 <h1 className="text-3xl font-bold">Sarah Chen</h1>
                 <div className="flex items-center justify-center md:justify-start gap-2 mt-1">
-                  <Badge className="bg-[#D5B9B2]/50 text-white">Pro Member</Badge>
-                  <Badge className="bg-[#ECE2D0]/90 text-[#582C4D]">Featured Creator</Badge>
+                  <Badge className="bg-theme-medium/50 text-white">Pro Member</Badge>
+                  <Badge className="bg-white/90 text-theme-dark">Featured Creator</Badge>
                 </div>
                 <p className="mt-3 max-w-2xl">
                   AI researcher and full-stack developer with a passion for healthcare technology. I love sharing my hackathon projects and learning from others.
@@ -53,11 +53,11 @@ const ProfileHeader = ({ profilePicUrl, isEditing, setIsEditing }: ProfileHeader
               </div>
               
               <div className="flex gap-2">
-                <Button variant="secondary" className="text-sm h-9 bg-[#ECE2D0] text-[#582C4D] hover:bg-[#D5B9B2]">
+                <Button variant="secondary" className="text-sm h-9 bg-white text-theme-dark hover:bg-white/90">
                   <Settings size={14} className="mr-1" />
                   <span>Settings</span>
                 </Button>
-                <Button variant="secondary" className="text-sm h-9 bg-[#ECE2D0] text-[#582C4D] hover:bg-[#D5B9B2]" asChild>
+                <Button variant="secondary" className="text-sm h-9 bg-white text-theme-dark hover:bg-white/90" asChild>
                   <Link to="/upload">
                     <Upload size={14} className="mr-1" />
                     <span>Upload</span>

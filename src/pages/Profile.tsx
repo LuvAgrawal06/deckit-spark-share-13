@@ -26,7 +26,7 @@ import EarningsTab from '@/components/profile/EarningsTab';
 
 // Import profile data
 import { 
-  userProjects, 
+  userProjects as initialUserProjects, 
   savedProjects, 
   notifications, 
   earningsData 
@@ -39,21 +39,28 @@ const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [activeTab, setActiveTab] = useState('projects');
   const profilePicUrl = "https://randomuser.me/api/portraits/women/44.jpg";
+  const [userProjects, setUserProjects] = useState(initialUserProjects);
   
-  // Set active tab based on location or query params
+  // Set active tab based on location or query params and handle new uploads
   useEffect(() => {
     // If we're coming from upload page, show projects tab and notification
     if (location.state?.fromUpload) {
       setActiveTab('projects');
-      toast({
-        title: "Upload Complete",
-        description: "Your project is now visible in your profile",
-      });
+      
+      // Add the new project to userProjects if it exists in state
+      if (location.state.newProject) {
+        setUserProjects(prev => [location.state.newProject, ...prev]);
+        
+        toast({
+          title: "Upload Complete",
+          description: "Your project is now visible in your profile",
+        });
+      }
     }
   }, [location, toast]);
   
   return (
-    <div className="min-h-screen flex flex-col bg-[#ECE2D0]">
+    <div className="min-h-screen flex flex-col bg-[#FAF5FF]">
       <Navbar />
       
       <main className="flex-grow">
@@ -65,29 +72,29 @@ const Profile = () => {
         
         <div className="container mx-auto px-4 py-8">
           <Tabs defaultValue={activeTab} value={activeTab} onValueChange={setActiveTab} className="space-y-8">
-            <TabsList className="mx-auto max-w-3xl flex justify-center mb-4 bg-[#BFB5AF]">
-              <TabsTrigger value="projects" className="flex items-center gap-1 data-[state=active]:bg-[#A26769] data-[state=active]:text-white">
+            <TabsList className="mx-auto max-w-3xl flex justify-center mb-4 bg-theme-medium/20">
+              <TabsTrigger value="projects" className="flex items-center gap-1 data-[state=active]:bg-theme data-[state=active]:text-white">
                 <FileText size={16} />
                 <span>My Projects</span>
               </TabsTrigger>
-              <TabsTrigger value="saved" className="flex items-center gap-1 data-[state=active]:bg-[#A26769] data-[state=active]:text-white">
+              <TabsTrigger value="saved" className="flex items-center gap-1 data-[state=active]:bg-theme data-[state=active]:text-white">
                 <Bookmark size={16} />
                 <span>Saved</span>
               </TabsTrigger>
-              <TabsTrigger value="following" className="flex items-center gap-1 data-[state=active]:bg-[#A26769] data-[state=active]:text-white">
+              <TabsTrigger value="following" className="flex items-center gap-1 data-[state=active]:bg-theme data-[state=active]:text-white">
                 <Users size={16} />
                 <span>Following</span>
               </TabsTrigger>
-              <TabsTrigger value="likes" className="flex items-center gap-1 data-[state=active]:bg-[#A26769] data-[state=active]:text-white">
+              <TabsTrigger value="likes" className="flex items-center gap-1 data-[state=active]:bg-theme data-[state=active]:text-white">
                 <ThumbsUp size={16} />
                 <span>Likes</span>
               </TabsTrigger>
-              <TabsTrigger value="notifications" className="flex items-center gap-1 data-[state=active]:bg-[#A26769] data-[state=active]:text-white">
+              <TabsTrigger value="notifications" className="flex items-center gap-1 data-[state=active]:bg-theme data-[state=active]:text-white">
                 <Bell size={16} />
                 <span>Notifications</span>
-                <Badge className="ml-1 bg-[#582C4D] h-5 w-5 flex items-center justify-center p-0 text-white">2</Badge>
+                <Badge className="ml-1 bg-theme-dark h-5 w-5 flex items-center justify-center p-0 text-white">2</Badge>
               </TabsTrigger>
-              <TabsTrigger value="earnings" className="flex items-center gap-1 data-[state=active]:bg-[#A26769] data-[state=active]:text-white">
+              <TabsTrigger value="earnings" className="flex items-center gap-1 data-[state=active]:bg-theme data-[state=active]:text-white">
                 <DollarSign size={16} />
                 <span>Earnings</span>
               </TabsTrigger>
