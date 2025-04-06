@@ -204,3 +204,13 @@
 .btn-gradient {
   @apply bg-gradient-to-r from-theme-dark via-theme to-theme-medium text-white hover:shadow-md transition-all;
 }
+
+/* ProjectCard text color fixes */
+.text-xs {
+  @apply text-theme-dark font-medium;
+}
+
+/* This ensures better contrast in other small text areas across the site */
+.text-gray-600, .text-gray-700 {
+  @apply text-theme-dark/90;
+}
