@@ -66,13 +66,13 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom theme colors - updated to coffee shop palette
+				// Custom theme colors - updated to luxurious purple and pink
 				theme: {
-					light: '#F5F0E8', // Au Lait - light cream
-					DEFAULT: '#2C313A', // Inkwell - deep muted navy/black
-					medium: '#E0C9A6', // Crème Brulée - creamy tan
-					cream: '#F5F0E8', // Au Lait - light cream (same as light for consistency)
-					dark: '#5D6970'  // Lunar Eclipse - cool gray-green
+					light: '#F8F7FC', // Light lavender - for backgrounds
+					DEFAULT: '#9B87F5', // Medium purple - primary brand color
+					medium: '#D6BCFA', // Soft lavender - secondary elements
+					cream: '#FFF5FA', // Soft pink cream - alternate light background
+					dark: '#7E69AB'  // Deep purple - for emphasis and contrast
 				},
 				// Keep deckit colors
 				deckit: {

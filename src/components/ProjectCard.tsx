@@ -44,7 +44,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
           />
           {(project.premium || project.ultraPremium) && (
             <div className="absolute top-0 right-0 p-2">
-              <Badge className={project.ultraPremium ? 'bg-gradient-to-r from-theme-dark to-theme text-theme-light' : 'bg-theme text-theme-light'}>
+              <Badge className={project.ultraPremium ? 'bg-gradient-to-r from-theme-dark to-theme text-white' : 'bg-theme text-white'}>
                 <Lock size={12} className="mr-1" />
                 {project.ultraPremium ? 'Ultra Premium' : 'Premium'}
               </Badge>
@@ -60,7 +60,7 @@ const ProjectCard = ({ project }: { project: ProjectProps }) => {
               {project.type.replace('-', ' ')}
             </Badge>
             <h3 className="font-semibold text-lg line-clamp-1">
-              <Link to={`/project/${project.id}`} className="hover:text-deckit-purple">
+              <Link to={`/project/${project.id}`} className="hover:text-theme">
                 {project.title}
               </Link>
             </h3>
