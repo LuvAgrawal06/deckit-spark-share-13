@@ -18,7 +18,7 @@ const Navbar = () => {
   });
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-theme-cream border-b border-theme-light shadow-sm">
+    <nav className="sticky top-0 z-50 w-full bg-theme-cream border-b border-theme-medium shadow-sm">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Logo and Brand */}
@@ -37,7 +37,7 @@ const Navbar = () => {
                 <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
                 <Input
                   placeholder="Search decks, code projects, or users..."
-                  className="pl-10 w-full bg-white/70 border-theme-light focus:border-theme focus:ring-1 focus:ring-theme"
+                  className="pl-10 w-full bg-white/70 border-theme-medium focus:border-theme focus:ring-1 focus:ring-theme"
                 />
               </div>
             </div>
@@ -98,7 +98,7 @@ const Navbar = () => {
               <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Search..."
-                className="pl-10 w-full bg-white/70 border-theme-light"
+                className="pl-10 w-full bg-white/70 border-theme-medium"
               />
             </div>
           </div>
@@ -106,26 +106,26 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobile && mobileMenuOpen && (
-          <div className="absolute top-full left-0 w-full bg-theme-cream border-b border-theme-light shadow-lg py-3 animate-in slide-in-from-top-2">
+          <div className="absolute top-full left-0 w-full bg-theme-cream border-b border-theme-medium shadow-lg py-3 animate-in slide-in-from-top-2">
             <div className="container mx-auto px-4 flex flex-col space-y-2">
-              <Link to="/browse" className="py-2 px-4 hover:bg-theme-light rounded-md text-theme-dark">
+              <Link to="/browse" className="py-2 px-4 hover:bg-theme-medium/30 rounded-md text-theme-dark">
                 Browse
               </Link>
-              <Link to="/pricing" className="py-2 px-4 hover:bg-theme-light rounded-md text-theme-dark">
+              <Link to="/pricing" className="py-2 px-4 hover:bg-theme-medium/30 rounded-md text-theme-dark">
                 Pricing
               </Link>
-              <Link to="/upload" className="py-2 px-4 hover:bg-theme-light rounded-md flex items-center gap-2 text-theme-dark">
+              <Link to="/upload" className="py-2 px-4 hover:bg-theme-medium/30 rounded-md flex items-center gap-2 text-theme-dark">
                 <Upload size={16} />
                 <span>Upload</span>
               </Link>
               
               {!isLoggedIn ? (
-                <Link to="/login" className="py-2 px-4 hover:bg-theme-light rounded-md flex items-center gap-2 text-theme-dark">
+                <Link to="/login" className="py-2 px-4 hover:bg-theme-medium/30 rounded-md flex items-center gap-2 text-theme-dark">
                   <User size={16} />
                   <span>Login</span>
                 </Link>
               ) : (
-                <Link to="/profile" className="py-2 px-4 hover:bg-theme-light rounded-md flex items-center gap-2 text-theme-dark">
+                <Link to="/profile" className="py-2 px-4 hover:bg-theme-medium/30 rounded-md flex items-center gap-2 text-theme-dark">
                   <div className="h-6 w-6 rounded-full overflow-hidden">
                     <img src={user.profilePic} alt={user.name} className="h-full w-full object-cover" />
                   </div>
